@@ -141,3 +141,7 @@ sum(function add(a,b)  {
 ```
 
 10. Explain what is callback function. Why you can pass a function inside a function?
+
+when a function pass as a argument that type function is called call back function.
+
+we pass function refrence inside the function because function is a object and object is expression.
