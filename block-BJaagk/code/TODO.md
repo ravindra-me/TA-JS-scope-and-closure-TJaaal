@@ -24,27 +24,15 @@ function percentage(marks, total) {
   return (marks * 100) / total;
 }
 
-// Your answer
-
-let percentage =  (marks, total) => {
-  return (marks * 100) / 100;
-}
-
-percentage (marks, total) {
-  return (marks * 100) / 100;
-}
+// declaration
 
 ```
-
 ```js
 let percentage = function percentage(marks, total) {
   return (marks * 100) / total;
 };
 
-function percentage(marks, total) {
-  return (marks * 100) / total;
-};
-
+// function expression
 ```
 
 ```js
@@ -52,30 +40,35 @@ let percentage = function (marks, total) {
   return (marks * 100) / total;
 };
 
-function percentage(marks, total) {
-  return (marks * 100) / total;
-};
+// function expression
 ```
+// 
 
 ```js
 let percentage = (marks, total) => {
   return (marks * 100) / total;
 };
 
-function percentage(marks, total) {
-  return (marks * 100) / total;
-};
+// function expression
 ```
 
 ```js
 let percentage = (marks, total) => (marks * 100) / total;
+// function expression
 
-function percentage(marks, total) {
-  return (marks * 100) / total;
-};
 ```
 
 3. Why is a function definition an expression in JavaScript? Give one example of function expression.
+function is object and oject is value 
+```js
+function add(){
+
+}
+
+var obj = {};
+let add  = function(){}
+
+```
 
 4. Why is a function call an expression in JavaScript?
 
