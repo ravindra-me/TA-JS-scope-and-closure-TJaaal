@@ -43,10 +43,10 @@ The above code will throw an error `Reference Error username is not defined`.
 if (true) {
   var username = 'Arya';
 }
-console.log(useranme); // Reference Error username is not defined
+console.log(useranme); // Arya
 
 ```
-In above code we are looking for the variable named `usename`. There is no variable named `username` in the global scope. var create "function" scope  so  we can't access the variable defined inside a function from outside.
+In above code we are looking for the variable named `usename`. username is define globaly so we can acces 
 
 The above code will throw an error `Reference Error username is not defined`.
 
@@ -57,9 +57,9 @@ let username = 'John';
 if (true) {
   var username = 'Arya';
 }
-console.log(useranme); // John
+console.log(useranme); //Error username alredy declared
 ```
-In above code we are looking for the variable named `usename`. There is  variable named `username` in the global scope.  we can access the variable `username`.
+In above code we are looking for the variable named `usename`. There is  variable named `username` in the global scope.  we can not again declare variable with same in same scope.
 
 The above code will throw an error `Reference Error username is not defined`.
 
@@ -70,7 +70,7 @@ let username = 'John';
 if (true) {
   let username = 'Arya';
 }
-console.log(useranme); // Uncaught SyntaxError Indentifer username has already been declared
+console.log(useranme); // "John"
 ```
 
 7. Go through the code below and write down the process of making decision about looking for the variable. Also write the output of the code below.
@@ -81,7 +81,7 @@ function sayHello() {
   let username = 'Arya';
 }
 sayHello();
-console.log(useranme); // Uncaught SyntaxError Indentifer username has already been declared
+console.log(useranme); // Jhon
 
 
 ```
