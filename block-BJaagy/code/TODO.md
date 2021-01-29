@@ -10,6 +10,26 @@ Have `map` return a new array filled with values that are the result of the 'cal
 
 ```js
 // Your code goes here
+function add(a) {
+  return a+ a;
+}
+
+function calculator(n, cb) {
+  return cb(n)
+}
+calculator(2, add)
+
+function refrence(cd) {
+  return add
+}
+
+function map(arr, cb) {
+  var newArr = [];
+  for(let i=0 ; i <arr.length ; i++){
+    newArr.push(cb(arr[i]))
+  }
+  return newArr;
+}
 
 // Test Your Code
 function multiplyByTwo(n) {
@@ -24,6 +44,9 @@ multiplyByTwo(2); //-> 4
 
 ```js
 // Your code goes here
+function forEach(latters, cb) {
+  return cb(latters);
+}
 
 // Test Your Code
 let alphabet = '';
@@ -38,7 +61,6 @@ console.log(alphabet); //prints 'abcd'
 
 ```js
 // Test Your Code
-
 var numbers = [1, 3, 5, 4, 7, 89, 234, 20];
 let even = filter(numbers, function (n) {
   return n % 2 === 0;
@@ -48,4 +70,14 @@ let odd = filter(numbers, function (n) {
   return n % 2 !== 0;
 });
 console.log(odd); // [1,3,5,7,89]
+
+function filter(numbers, cb) {
+  let newArr = [];
+  for(let i=0 ; i < numbers.length ; i++) {
+    if(cb(numbers[i])){
+      newArr.push(numbers[i])
+    }
+  }
+  return newArr;
+}
 ```
