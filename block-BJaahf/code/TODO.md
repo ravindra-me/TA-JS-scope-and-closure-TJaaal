@@ -56,15 +56,13 @@ reduce(nums, add, 0); //-> 8
 function intersection(...arrays) {
   let first1 = arrays[0];
   let b = first1.filter(ele => arrays[1].includes(ele))
-
-  var c = [];
-
+  var c;
   if(arrays.length < 3) {
     c = b;
     
   } else {
     for(let i=1 ; i < arrays.length ; i++){
-    var c = arrays[i].filter(ele=> b.includes(ele))
+      c = arrays[i].filter(ele=> b.includes(ele))
     }
   }
 
