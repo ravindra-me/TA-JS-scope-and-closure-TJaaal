@@ -10,10 +10,10 @@
 **You can use normal for loop for this function**
 
 ```js
-function loop(number, cb , cb2) {
+function loop(number, text, update,body ) {
   // Your code goes here
-  for(let n= number; n >0 ; n--) {
-    console.log(n)
+  for(let i= number; text(i) ; i = update(i)) {
+    body(i)
   }
 }
 
