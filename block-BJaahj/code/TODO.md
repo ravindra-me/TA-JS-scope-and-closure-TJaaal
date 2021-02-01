@@ -3,7 +3,14 @@
 1. Construct a function `objOfMatches` that accepts two arrays and a callback. `objOfMatches` will build an object and return it. To build the object, `objOfMatches` will test each element of the first array using the callback to see if the output matches the corresponding element (by index) of the second array. If there is a match, the element from the first array becomes a key in an object, and the element from the second array becomes the corresponding value.
 
 ```js
-function objOfMatches(array1, array2, callback) {}
+function objOfMatches(array1, array2, callback) {
+  return  array1.reduce((acc, curr, i) => {
+   if(callback(curr) === array2[i]) {
+     acc[curr] = array2[i]
+   }
+   return acc;
+  },{})
+}
 
 // TEST
 console.log(
@@ -20,7 +27,9 @@ console.log(
 2. Construct a function `multiMap` that will accept two arrays: an array of values and an array of callbacks. `multiMap` will return an object whose keys match the elements in the array of values. The corresponding values that are assigned to the keys will be arrays consisting of outputs from the array of callbacks, where the input to each callback is the key.
 
 ```js
-function multiMap(arrVals, arrCallbacks) {}
+function multiMap(arrVals, arrCallbacks) {
+ return  arrVals.reduce((acc , curr, i) => acc[curr] = arrCallbacks.map(cb => cb(curr)) , {} )
+}
 
 // TEST
 console.log(
@@ -50,7 +59,15 @@ To build the object, `objOfMatchesWithArray` will test each element of the first
 The final output from the third array will be matched agains the same indexed element of second array. If there is a match, the element from the first array becomes a key in an object, and the element from the second array becomes the corresponding value.
 
 ```js
-function objOfMatchesWithArray(array1, array2, callback) {}
+function objOfMatchesWithArray(array1, array2, callback) {
+  return  array1.reduce((acc, curr, i) => {
+    let val = curr;
+   if(callback.reduce((ac ,cb) => curr= cb(curr)  , "") === array2[i]) {
+     acc[val] = array2[i]
+   }
+    return acc
+  },{})
+}
 
 // TEST
 console.log(
@@ -71,7 +88,7 @@ console.log(
       },
     ]
   )
-); // should log: { hi: 'HiHi', howdy: 'HowdyHowdy'}
+);// should log: { hi: 'HiHi', howdy: 'HowdyHowdy'}
 ```
 
 4. Construct a function `objectWithArrayValues` that accepts two arrays. First array will be array of any values, second array will be array of functions.
@@ -81,7 +98,12 @@ To build the object, `objectWithArrayValues` will pass each value of the first a
 In the final object the key will be the value form the first array like `hi` and value will be an array of values returned from each function like `['HI', 'Hi', 'HiHi']`
 
 ```js
-function objOfMatchesWithArray(array1, array2, callback) {}
+function objOfMatchesWithArray(array1, array2, callback) {
+  return array1.reduce((acc , curr,i) =>{
+    acc[curr] = array2.map(ele=> ele(curr))
+    return acc;
+  },{})
+}
 
 // TEST
 console.log(
@@ -123,8 +145,12 @@ Create a function named `schedule` which accept two arguments an array of functi
 The function `schedule` will execute the function at first index after the value in value on first index in second array. i.e execute `sayHi` after `1` second and `sayHello` after `2` second.
 
 ```js
-function schedule() {}
-
+function schedule(arr1, arr2) {
+  if(arr1.length !== arr2.length){
+    alert("invalid input")
+  }
+  arr1.forEach((elm,i)=> setInterval( elm(arr2[i]), 1000))
+}
 function sayHi() {
   console.log('Hi');
 }
