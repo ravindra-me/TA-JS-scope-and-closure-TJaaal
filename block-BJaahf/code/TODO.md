@@ -36,8 +36,7 @@ Here's how it works. The function has an "accumulator value" which starts as the
 function reduce(array, callback, initialValue) {
   let num = initialValue;
   for(let i= 0; i < array.length ; i++) {
-    let a = callback(initialValue, array[i]);
-    num+= a;
+    num += callback(initialValue, array[i]);
   }
   return num;
 }
@@ -54,19 +53,26 @@ reduce(nums, add, 0); //-> 8
 
 ```js
 function intersection(...arrays) {
-  let first1 = arrays[0];
-  let b = first1.filter(ele => arrays[1].includes(ele))
-  var c;
-  if(arrays.length < 3) {
-    c = b;
+  // let first1 = arrays[0];
+  // let b = first1.filter(ele => arrays[1].includes(ele))
+  // var c;
+  // if(arrays.length < 3) {
+  //   c = b;
     
-  } else {
-    for(let i=1 ; i < arrays.length ; i++){
-      c = arrays[i].filter(ele=> b.includes(ele))
-    }
-  }
+  // } else {
+  //   for(let i=1 ; i < arrays.length ; i++){
+  //     c = arrays[i].filter(ele=> b.includes(ele))
+  //   }
+  // }
 
-  return  c.sort((a,b)=> a-b);
+  // return  c.sort((a,b)=> a-b);
+
+  let first = array[0];
+  for(let i=1; i< arrays.length ; i++){
+    let second = arrays[i];
+    first = first.filter(elm => second.includes(elm))
+  }
+  return first
 }
 // Test
 console.log(
