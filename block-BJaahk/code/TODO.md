@@ -100,7 +100,7 @@ function createCache(cb, str) {
   // Your code goes here
   let obj = {};
   function add(num) {
-    if (typeof num === 'number') {
+    if (str !== 'number') {
       if (obj[num]) {
         return obj[num];
       } else {
