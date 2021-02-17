@@ -8,7 +8,7 @@ The returned function accepts a sentence. If the sentence contains the `fromWord
 function censor(fromWord, toWord) {
   //  Your code goes here
   function cb(str) {
-    return str.replace(fromWord , toWord)
+    return str.replace(fromWord, toWord);
   }
   return cb;
 }
@@ -29,20 +29,20 @@ The returned function either accepts two parameter or one parameter.
 
 ```js
 function multipleCensor() {
-  const array = []
-  function cb(a,b) {
-    if(a && b) {
-      array.push([a,b])
-      console.log(array)
-      return 
-    } else{
-      for(let arr of array) {
-        a.replace(arr[0], arr[1])
+  const array = [];
+  function cb(a, b) {
+    if (a && b) {
+      array.push([a, b]);
+      console.log(array);
+      return;
+    } else {
+      for (let arr of array) {
+        a.replace(arr[0], arr[1]);
       }
-     return a;
+      return a;
     }
   }
-  return cb
+  return cb;
 }
 
 let censorQuote = multipleCensor();
@@ -66,18 +66,18 @@ The returned function accepts one parameter.
 - If the parameter is the same as the password it will return the object in which we stored the values.
 
 ```js
-function createCache(cb , str) {
+function createCache(cb, str) {
   // Your code goes here
-  let obj = {}
+  let obj = {};
   function add(num) {
-   if(typeof num === "number") {
-     obj[num] = cb(num);
-     return cb(num)
-   }else {
-     return obj;
-   }
+    if (str !== num) {
+      obj[num] = cb(num);
+      return cb(num);
+    } else {
+      return obj;
+    }
   }
-  return add
+  return add;
 }
 
 function add10(num) {
@@ -98,22 +98,20 @@ addCache('foo'); // {12: 22, 100: 110, 1: 11}
 ```js
 function createCache(cb, str) {
   // Your code goes here
-  let obj = {}
+  let obj = {};
   function add(num) {
-   if(typeof num === "number") {
-    if(obj[num]){
-      return obj[num]
-    }else{
-      obj[num] = cb(num)
-      return cb(num)
+    if (typeof num === 'number') {
+      if (obj[num]) {
+        return obj[num];
+      } else {
+        obj[num] = cb(num);
+        return cb(num);
+      }
+    } else {
+      return obj;
     }
-  
-   }else {
-     return obj;
-   }
   }
-  return add
-
+  return add;
 }
 
 function add10(num) {
